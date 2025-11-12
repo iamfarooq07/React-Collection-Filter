@@ -3,8 +3,7 @@ import { categoryTitle } from "../data/category";
 
 function CategoryFilter({ selectedCategories, onChangeCategory }) {
   return (
-    <div className="h-42 p-5 space-y-2 border border-gray-200 shadow-lg rounded-md">
-      <h3 className="font-semibold text-lg">Category Filter</h3>
+    <div className="h-auto p-5 space-y-2 border border-gray-200 shadow-lg rounded-md">
       {categoryTitle.map((category, index) => (
         <Checkbox
           key={index}

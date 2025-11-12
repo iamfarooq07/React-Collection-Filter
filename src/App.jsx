@@ -70,6 +70,14 @@ function App() {
     <div>
       <div className="grid grid-cols-12 gap-3 my-2 mx-2">
         <div className="col-span-2">
+          <button class="relative mb-2 p-2 w-full border-2 overflow-hidden rounded-xl bg-black text-white cursor-pointer group">
+            <span class="relative z-10">Themes</span>
+            <span
+              class="absolute top-0 left-0 w-full h-full rounded-xl 
+             hover:border-none bg-gradient-to-r from-gray-400 to-gray-800 scale-x-0 origin-left transition-transform duration-[100ms] group-hover:scale-x-100"
+            ></span>
+          </button>
+          <hr className="my-2" />
           {/* Category Filter */}
           <CategoryFilter
             selectedCategories={selectedCategories}
@@ -87,11 +95,29 @@ function App() {
             selectedRatings={selectedRatings}
             onChangeRating={onChangeRatingHandler}
           />
+          <button class="relative mb-2 p-2 w-full border-2 overflow-hidden rounded-xl bg-black text-white cursor-pointer group">
+            <span class="relative z-10">Clear All</span>
+            <span
+              class="absolute top-0 left-0 w-full h-full rounded-xl 
+             hover:border-none bg-gradient-to-r from-gray-400 to-gray-800 scale-x-0 origin-left transition-transform duration-[100ms] group-hover:scale-x-100"
+            ></span>
+          </button>
+
+          {/* <button className="border-2 px-2 py-2 rounded-xl w-full mb-2">
+            Clear All
+          </button> */}
+          <SortingFilter click={sortProducts} />
         </div>
 
         <div className="col-span-10">
-          <SortingFilter click={sortProducts} />
-          <hr className="my-4" />
+          <div className="text-end">
+            <input
+              type="search"
+              placeholder="Search"
+              className="w-[25%] bg-gray-800 p-2 rounded-xl"
+            />
+          </div>
+          <hr className="my-2" />
           <Products products={sortedProducts} />
         </div>
       </div>
