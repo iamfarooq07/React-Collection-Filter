@@ -7,6 +7,7 @@ import Products from "./components/Products";
 import Ratingfilter from "./components/Ratingfilter";
 import Pricefilter from "./components/Pricefilter";
 import SortingFilter from "./components/SortingFilter";
+import Pagination from "./components/Pagination";
 
 function App() {
   // Rating Filter Logic
@@ -66,14 +67,31 @@ function App() {
     sortedProducts.sort((a, b) => a.price - b.price);
   }
 
+  // Pagination Filter Logic
+  // Pagination Logic
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 6;
+
+  const totalItems = sortedProducts.length;
+
+  const startIndex = (currentPage - 1) * pageSize;
+
+  const endIndex = startIndex + pageSize;
+  const paginatedProducts = sortedProducts.slice(startIndex, endIndex);
+  console.log(selectedCategories);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div>
       <div className="grid grid-cols-12 gap-3 my-2 mx-2">
         <div className="col-span-2">
-          <button class="relative mb-2 p-2 w-full border-2 overflow-hidden rounded-xl bg-black text-white cursor-pointer group">
-            <span class="relative z-10">Themes</span>
+          <button className="relative p-2 w-full border-2 overflow-hidden rounded-xl bg-black text-white cursor-pointer group">
+            <span className="relative z-10">Themes</span>
             <span
-              class="absolute top-0 left-0 w-full h-full rounded-xl 
+              className="absolute top-0 left-0 w-full h-full rounded-xl 
              hover:border-none bg-gradient-to-r from-gray-400 to-gray-800 scale-x-0 origin-left transition-transform duration-[100ms] group-hover:scale-x-100"
             ></span>
           </button>
@@ -95,30 +113,46 @@ function App() {
             selectedRatings={selectedRatings}
             onChangeRating={onChangeRatingHandler}
           />
-          <button class="relative mb-2 p-2 w-full border-2 overflow-hidden rounded-xl bg-black text-white cursor-pointer group">
-            <span class="relative z-10">Clear All</span>
+          <button className="relative mb-2 p-2 w-full border-2 overflow-hidden rounded-xl bg-black text-white cursor-pointer group">
+            <span className="relative z-10">Clear All</span>
             <span
-              class="absolute top-0 left-0 w-full h-full rounded-xl 
+              className="absolute top-0 left-0 w-full h-full rounded-xl 
              hover:border-none bg-gradient-to-r from-gray-400 to-gray-800 scale-x-0 origin-left transition-transform duration-[100ms] group-hover:scale-x-100"
             ></span>
           </button>
-
-          {/* <button className="border-2 px-2 py-2 rounded-xl w-full mb-2">
-            Clear All
-          </button> */}
           <SortingFilter click={sortProducts} />
         </div>
 
         <div className="col-span-10">
-          <div className="text-end">
-            <input
-              type="search"
-              placeholder="Search"
-              className="w-[25%] bg-gray-800 p-2 rounded-xl"
-            />
+          <div className="flex justify-between items-center">
+            <div className="flex gap-2 flex-wrap my-2">
+              {selectedCategories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => onChangeCategoryHandler(cat, false)}
+                  className="flex items-center gap-1 bg-gray-600 text-white px-3 py-1 rounded-full text-sm"
+                >
+                  {cat} <i className="fa-solid fa-xmark text-black"></i>
+                </button>
+              ))}
+            </div>
+            <div className="">
+              <input
+                type="search"
+                placeholder="Search"
+                className="w-[25vw] bg-gray-800 p-2 rounded-xl"
+              />
+            </div>
           </div>
           <hr className="my-2" />
-          <Products products={sortedProducts} />
+          <Products products={paginatedProducts} />
+
+          <Pagination
+            totalItems={totalItems}
+            pageSize={pageSize}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
         </div>
       </div>
     </div>

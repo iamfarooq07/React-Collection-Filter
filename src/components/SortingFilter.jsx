@@ -1,7 +1,7 @@
 import React from "react";
 
 function SortingFilter({ click }) {
-  console.log(click);
+  // console.log(click);
 
   return (
     <div>
