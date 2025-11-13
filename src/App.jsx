@@ -8,6 +8,7 @@ import Ratingfilter from "./components/Ratingfilter";
 import Pricefilter from "./components/Pricefilter";
 import SortingFilter from "./components/SortingFilter";
 import Pagination from "./components/Pagination";
+import Chipfilter from "./components/chipfilter";
 
 function App() {
   // Rating Filter Logic
@@ -124,26 +125,8 @@ function App() {
         </div>
 
         <div className="col-span-10">
-          <div className="flex justify-between items-center">
-            <div className="flex gap-2 flex-wrap my-2">
-              {selectedCategories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => onChangeCategoryHandler(cat, false)}
-                  className="flex items-center gap-1 bg-gray-600 text-white px-3 py-1 rounded-full text-sm"
-                >
-                  {cat} <i className="fa-solid fa-xmark text-black"></i>
-                </button>
-              ))}
-            </div>
-            <div className="">
-              <input
-                type="search"
-                placeholder="Search"
-                className="w-[25vw] bg-gray-800 p-2 rounded-xl"
-              />
-            </div>
-          </div>
+          <Chipfilter seleted={selectedCategories} />
+
           <hr className="my-2" />
           <Products products={paginatedProducts} />
 
