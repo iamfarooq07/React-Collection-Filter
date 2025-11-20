@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="flex justify-between items-center w-full px-20 border-b-2 bg-black">
+    <div className="sticky top-0 flex justify-between items-center w-full px-20 border-b-2 bg-black">
       <div>
         <img
           src="https://www.broadwaypizza.com.pk/assets/broadwayPizzaLogo.png"

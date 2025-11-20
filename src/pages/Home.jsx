@@ -189,7 +189,7 @@ const pastas = [
   },
 ];
 
-console.log(...pizzas);
+// console.log(...pizzas);
 
 function Home() {
   return (
@@ -202,6 +202,7 @@ function Home() {
           console.log(elem);
           return (
             <Maincard
+              key={elem.id}
               name={elem.name}
               description={elem.description}
               image={elem.image}
@@ -213,7 +214,6 @@ function Home() {
       <h1 className="m-10 text-center text-5xl font-extrabold">Starters</h1>
       <div className="flex flex-wrap justify-center items-center">
         {starters.map((elem) => {
-          // console.log(elem);
           return (
             <Maincard
               name={elem.name}
@@ -225,11 +225,10 @@ function Home() {
         })}
       </div>
       <h1 className="m-10 text-center text-5xl font-extrabold">
-        Pasta / StandWich
+        Pasta / Sandwich
       </h1>
       <div className="flex flex-wrap justify-center items-center">
         {pastas.map((elem) => {
-          // console.log(elem);
           return (
             <Maincard
               name={elem.name}

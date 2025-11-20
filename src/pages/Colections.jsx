@@ -79,7 +79,7 @@ function Colections() {
 
   const endIndex = startIndex + pageSize;
   const paginatedProducts = sortedProducts.slice(startIndex, endIndex);
-  console.log(selectedCategories);
+  // console.log(selectedCategories);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
