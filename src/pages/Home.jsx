@@ -1,6 +1,7 @@
 import CenterImage from "./CenterImage";
 import Maincard from "./Maincard";
 import MainImage from "./MainImage";
+import ProductCard from "./ProductCard";
 
 const pizzas = [
   {
@@ -199,7 +200,7 @@ function Home() {
       <h1 className="m-10 text-center text-5xl font-extrabold">Mega Deals</h1>
       <div className="flex flex-wrap justify-center items-center">
         {pizzas.map((elem) => {
-          console.log(elem);
+          // console.log(elem);
           return (
             <Maincard
               key={elem.id}
@@ -216,6 +217,7 @@ function Home() {
         {starters.map((elem) => {
           return (
             <Maincard
+              key={elem.id}
               name={elem.name}
               description={elem.description}
               image={elem.image}
@@ -231,6 +233,7 @@ function Home() {
         {pastas.map((elem) => {
           return (
             <Maincard
+              key={elem.id}
               name={elem.name}
               description={elem.description}
               image={elem.image}
@@ -240,6 +243,7 @@ function Home() {
         })}
       </div>
       <CenterImage />
+      <ProductCard />
     </div>
   );
 }

@@ -18,8 +18,8 @@ function Header() {
         <Link to="/products" className="text-white hover:text-orange-300">
           Products
         </Link>
-        <Link to="/cart" className="text-white hover:text-orange-300">
-          Cart
+        <Link to="/Card" className="text-white hover:text-orange-300">
+          Card
         </Link>
       </div>
     </div>
