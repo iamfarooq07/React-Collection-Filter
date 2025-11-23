@@ -1,13 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Maincard({ product }) {
   return (
     <div className="bg-black text-white w-full border-white rounded-xl shadow-xl p-4 border-2">
-      <img
-        src={product.image}
-        alt={product.title}
-        className="w-full h-48 object-cover rounded-lg"
-      />
+      <Link to={`/products/${product.id}`}>
+        <img
+          src={product.image}
+          alt={product.title}
+          className="w-full h-48 object-cover rounded-lg"
+        />
+      </Link>
 
       <h1 className="mt-4 text-xl font-bold">{product.title}</h1>
 

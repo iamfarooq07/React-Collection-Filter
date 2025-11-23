@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProductDetail from "./pages/ProductDetail";
 import ProductCard from "./pages/ProductCard";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/Products" element={<Colections />} />
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/Card" element={<ProductCard />} />
+        <Route path="/Checkout" element={<Checkout />} />
       </Routes>
       <Footer />
     </div>

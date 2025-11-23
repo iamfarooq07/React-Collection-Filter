@@ -19,7 +19,7 @@ function Header() {
           Products
         </Link>
         <Link to="/Card" className="text-white hover:text-orange-300">
-          Card
+          <i className="fa-solid fa-cart-shopping"></i>
         </Link>
       </div>
     </div>
