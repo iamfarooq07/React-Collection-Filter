@@ -12,12 +12,12 @@ const Cart = () => {
     return (
       <div className="min-h-screen  py-12">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl font-bold mb-4">Your Cart is Empty</h1>
+          <h1 className="text-3xl font-bold mb-4">Your Card is Empty</h1>
           <p className="text-gray-600 mb-8">
             Add some delicious items to get started!
           </p>
           <Link
-            to="/collection"
+            to="/products"
             className="inline-block bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
           >
             Browse Products
@@ -76,7 +76,7 @@ const Cart = () => {
                 Proceed to Checkout
               </Link>
               <Link
-                to="/collection"
+                to="/products"
                 className="block w-full bg-gray-200 text-gray-800 text-center py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
               >
                 Continue Shopping

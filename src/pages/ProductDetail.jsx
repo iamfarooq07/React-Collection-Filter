@@ -64,7 +64,6 @@ const ProductDetail = () => {
   const totalPrice = (product.price + selectedDrink.price) * quantity;
 
   const handleAddToCart = () => {
-    // Add to cart with quantity and drink
     addToCart(product, quantity, selectedDrink);
     alert(`Added ${quantity} item${quantity > 1 ? "s" : ""} to cart!`);
   };
