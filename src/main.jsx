@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter } from "react-router-dom";
-import CartProvider from "./context/CartContext"; // make sure exact file name
+import CartProvider from "./context/CartContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
