@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../data/products";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../contextFile/CartContext";
 import { toast } from "react-toastify";
 
 const drinks = [
