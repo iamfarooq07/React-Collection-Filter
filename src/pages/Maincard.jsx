@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Maincard({ product }) {
   return (
-    <div className="bg-black text-white w-full border-white rounded-xl shadow-xl p-4 border-2">
+    <div className="bg-gray-800 text-white w-full border-white rounded-xl shadow-xl p-4 border-2">
       <Link to={`/products/${product.id}`}>
         <img
           src={product.image}

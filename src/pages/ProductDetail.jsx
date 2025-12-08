@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
+import { toast } from "react-toastify";
 
 const drinks = [
   { id: 1, name: "Coca Cola", price: 2.99 },
@@ -64,8 +65,13 @@ const ProductDetail = () => {
   const totalPrice = (product.price + selectedDrink.price) * quantity;
 
   const handleAddToCart = () => {
+    if (!product) return;
     addToCart(product, quantity, selectedDrink);
-    alert(`Added ${quantity} item${quantity > 1 ? "s" : ""} to cart!`);
+
+    toast.success(
+      `Added ${quantity} ${product.title}${quantity > 1 ? "s" : ""} to cart!`,
+      { autoClose: 800 }
+    );
   };
 
   return (
@@ -107,22 +113,19 @@ const ProductDetail = () => {
           {/* Product Details */}
 
           <div className="col-span-12 md:col-span-6">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h1 className="text-4xl font-bold text-gray-800 mb-4">
+            <div className="bg-gray-800 text-white rounded-lg shadow-lg p-8">
+              <h1 className="text-4xl font-bold text-white mb-4">
                 {product.title}
               </h1>
 
               <div className="flex items-center gap-2 mb-4">
                 <div className="flex">{renderStars(product.rating)}</div>
-                <span className="text-gray-600">({product.rating})</span>
               </div>
 
-              <p className="text-gray-700 text-lg mb-6">
-                {product.description}
-              </p>
+              <p className="text-white text-lg mb-6">{product.description}</p>
 
               <div className="mb-6">
-                <label className="block text-lg font-semibold text-gray-800 mb-3">
+                <label className="block text-lg font-semibold text-white mb-3">
                   Select Drink:
                 </label>
                 <select
@@ -133,7 +136,7 @@ const ProductDetail = () => {
                     );
                     setSelectedDrink(drink);
                   }}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg  text-lg"
+                  className="w-full px-4 py-3 border text-black bg-white  rounded-lg  text-lg"
                 >
                   {drinks.map((drink) => (
                     <option key={drink.id} value={drink.id}>
@@ -144,7 +147,7 @@ const ProductDetail = () => {
               </div>
 
               <div className="mb-6">
-                <label className="block text-lg font-semibold text-gray-800 mb-3">
+                <label className="block text-lg font-semibold text-white mb-3">
                   Quantity:
                 </label>
                 <div className="flex items-center gap-4">
@@ -168,14 +171,14 @@ const ProductDetail = () => {
 
               <div className="border-t border-gray-200 pt-6 mb-6">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-lg text-gray-600">Product Price:</span>
+                  <span className="text-lg text-white">Product Price:</span>
                   <span className="text-xl font-semibold">
                     ${product.price}
                   </span>
                 </div>
                 {selectedDrink.price > 0 && (
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-lg text-gray-600">
+                    <span className="text-lg text-white">
                       {selectedDrink.name}:
                     </span>
                     <span className="text-xl font-semibold">
@@ -184,10 +187,8 @@ const ProductDetail = () => {
                   </div>
                 )}
                 <div className="flex justify-between items-center pt-4 border-t border-gray-200">
-                  <span className="text-2xl font-bold text-gray-800">
-                    Total:
-                  </span>
-                  <span className="text-3xl font-bold text-blue-600">
+                  <span className="text-2xl font-bold text-white">Total:</span>
+                  <span className="text-3xl font-bold text-green-600">
                     ${totalPrice.toFixed(2)}
                   </span>
                 </div>
@@ -211,7 +212,7 @@ const ProductDetail = () => {
                     d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
                   />
                 </svg>
-                Add to Cart
+                Add to Card
               </button>
             </div>
           </div>

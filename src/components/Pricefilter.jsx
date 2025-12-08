@@ -5,7 +5,7 @@ function Pricefilter({ init, price, setfun }) {
 
   return (
     <div>
-      <div className="shadow-2xl p-8 rounded border-2 mt-2 border-white flex justify-center items-center gap-2">
+      <div className="shadow-2xl p-8 rounded bg-gray-800 border-2 mt-2 border-white flex justify-center items-center gap-2">
         <p>{init.min}</p>
         <input
           type="range"

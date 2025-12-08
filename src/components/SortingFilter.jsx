@@ -8,7 +8,7 @@ function SortingFilter({ click }) {
       <div className="flex justify-center items-center">
         <select
           onChange={(e) => click(e.target.value)}
-          className="bg-black text-white py-2 px-3 rounded-xl border-2"
+          className="bg-black text-white py-2 px-3 bg-gray-800 rounded-xl border-2"
         >
           <option value="PriceLowToHight">Price low to High</option>
           <option value="PriceHightToLow">Price High to Low</option>

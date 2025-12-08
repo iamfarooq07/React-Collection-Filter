@@ -7,28 +7,26 @@ import ProductDetail from "./pages/ProductDetail";
 import ProductCard from "./pages/ProductCard";
 import Checkout from "./pages/Checkout";
 import Dashboard from "./pages/Dashboard";
-// import CartProvider from "./context/CartContext";
+import CartProvider from "./context/CartContext";
 
 function App() {
   return (
-    // <CartProvider>
-    // {" "}
-    <div>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dashborad" element={<Dashboard />} />
-        <Route path="/Products" element={<Colections />} />
-        <Route path="/products/:id" element={<ProductDetail />} />
-        <Route path="/Card" element={<ProductCard />} />
-        <Route path="/Checkout" element={<Checkout />} />
-      </Routes>
-      <Footer />
-    </div>
+    <CartProvider>
+      {" "}
+      <div>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashborad" element={<Dashboard />} />
+          <Route path="/Products" element={<Colections />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/Card" element={<ProductCard />} />
+          <Route path="/Checkout" element={<Checkout />} />
+        </Routes>
+        <Footer />
+      </div>
+    </CartProvider>
   );
-  {
-    /* </CartProvider> */
-  }
 }
 
 export default App;

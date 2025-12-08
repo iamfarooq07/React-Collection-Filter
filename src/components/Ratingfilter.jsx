@@ -6,7 +6,7 @@ function Ratingfilter({ selectedRatings, onChangeRating }) {
 
   return (
     <div className="my-3">
-      <div className="w-full py-3 bg-black border-2 border-white shadow-xl rounded">
+      <div className="w-full py-3 bg-gray-800 border-2 border-white shadow-xl rounded">
         {ratings.map((rating) => (
           <div
             key={rating}

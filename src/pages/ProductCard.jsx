@@ -28,56 +28,79 @@ const Cart = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white text-black py-12">
+    <div className="min-h-screen bg-black text-gray-100 py-12">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Shopping Cart</h1>
+        {/* Header */}
+        <div className="flex justify-between items-center mb-10">
+          <h1 className="text-3xl font-bold tracking-wide">🛒 Shopping Card</h1>
+
           <button
             onClick={clearCart}
-            className="text-red-600 hover:text-red-800 font-semibold"
+            className="text-red-400 hover:text-red-300 font-semibold transition"
           >
-            Clear Cart
+            Clear Card
           </button>
         </div>
 
+        {/* Grid Layout */}
         <div className="grid grid-cols-12 gap-8">
-          <div className="col-span-8 bg-white text-black rounded-lg shadow-md">
-            <div className="p-4 border-b border-gray-200">
-              <h2 className="text-xl font-semibold">Cart Items</h2>
+          {/* LEFT SIDE – CART ITEMS */}
+          <div className="col-span-8 bg-gray-800/60 backdrop-blur-xl text-gray-100 rounded-2xl shadow-xl border border-gray-700">
+            <div className="p-5 border-b border-gray-700/70">
+              <h2 className="text-xl font-semibold tracking-wide">
+                Your Items
+              </h2>
             </div>
-            <div>
-              {cartItems.map((item) => (
-                <CartItem key={item.cartItemId} item={item} />
-              ))}
+
+            <div className="bg-gray-800">
+              {cartItems.length > 0 ? (
+                cartItems.map((item) => (
+                  <CartItem key={item.cartItemId} item={item} />
+                ))
+              ) : (
+                <p className="p-6 text-center text-gray-400">
+                  Your cart is empty
+                </p>
+              )}
             </div>
           </div>
 
+          {/* RIGHT SIDE – SUMMARY */}
           <div className="col-span-4">
-            <div className="bg-white rounded-lg shadow-md p-6 sticky top-24">
-              <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-              <div className="space-y-3 mb-4">
-                <div className="flex justify-between">
+            <div className="bg-gray-800/70 backdrop-blur-xl border border-gray-700 rounded-2xl shadow-xl p-6 sticky top-24">
+              <h2 className="text-xl font-semibold mb-4 tracking-wide">
+                Order Summary
+              </h2>
+
+              <div className="space-y-4 mb-6">
+                <div className="flex justify-between text-gray-300">
                   <span>Subtotal:</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span className="font-medium">${total.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between">
+
+                <div className="flex justify-between text-gray-300">
                   <span>Shipping:</span>
-                  <span>Free</span>
+                  <span className="font-medium text-green-400">Free</span>
                 </div>
-                <div className="border-t border-gray-200 pt-3 flex justify-between text-lg font-bold">
+
+                <div className="border-t border-gray-700 pt-4 flex justify-between text-lg font-bold">
                   <span>Total:</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span className="text-white">${total.toFixed(2)}</span>
                 </div>
               </div>
+
+              {/* Checkout Button */}
               <Link
                 to="/checkout"
-                className="block w-full bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mb-3"
+                className="block w-full bg-blue-600 hover:bg-blue-500 transition text-white text-center py-3 rounded-xl font-semibold shadow-lg mb-3"
               >
                 Proceed to Checkout
               </Link>
+
+              {/* Shopping Button */}
               <Link
                 to="/products"
-                className="block w-full bg-gray-200 text-gray-800 text-center py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
+                className="block w-full bg-gray-700 hover:bg-gray-600 transition text-gray-200 text-center py-3 rounded-xl font-semibold"
               >
                 Continue Shopping
               </Link>

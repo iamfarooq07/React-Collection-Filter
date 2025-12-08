@@ -1,18 +1,16 @@
 import { useCart } from "../context/CartContext";
 
 const CartItem = ({ item }) => {
-  console.log(CartItem);
-  const { updateQuantity, removeFromCart } = useCart();
+  const { updateCartQty, removeCartItem } = useCart();
 
-  const basePrice = Number(
-    item.basePrice ?? item.price - (item.drink?.price || 0)
-  );
-  const drinkPrice = Number(item.drink?.price || 0);
-  const quantity = Number(item.quantity || 1);
+  const basePrice = Number(item.price);
+  const drinkPrice = Number(item.cartDrink?.price || 0);
+  const quantity = Number(item.cartQty || 1);
+
   const totalPrice = (basePrice + drinkPrice) * quantity;
 
   return (
-    <div className="flex items-center gap-4 p-4 border-b border-gray-200 hover:bg-gray-50 transition-colors">
+    <div className="flex items-center my-4 bg-gray-200 gap-4 p-4 border-b border-gray-200 hover:bg-gray-50 transition-colors">
       <img
         src={item.image}
         alt={item.title}
@@ -22,12 +20,12 @@ const CartItem = ({ item }) => {
       <div className="flex-1 min-w-0">
         <h3 className="font-semibold text-gray-800 mb-1">{item.title}</h3>
 
-        {item.drink && (
+        {item.cartDrink && (
           <div className="flex items-center gap-2 mb-1 text-sm text-gray-600">
             <span>
               Drink:{" "}
               <span className="font-medium text-gray-800">
-                {item.drink.name}
+                {item.cartDrink.name}
               </span>
               {drinkPrice > 0 && (
                 <span className="text-gray-500"> (+${drinkPrice})</span>
@@ -55,17 +53,19 @@ const CartItem = ({ item }) => {
       {/* Quantity controls */}
       <div className="flex items-center gap-2">
         <button
-          onClick={() =>
-            updateQuantity(item.cartItemId, Math.max(1, quantity - 1))
-          }
-          className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-100 font-bold transition-colors"
+          onClick={() => updateCartQty(item, -1)}
+          className="w-8 h-8 flex items-center justify-center border text-black border-black rounded-lg hover:bg-gray-100 font-bold transition-colors"
         >
           −
         </button>
-        <span className="w-8 text-center font-semibold">{quantity}</span>
+
+        <span className="w-8 text-center text-black font-semibold">
+          {quantity}
+        </span>
+
         <button
-          onClick={() => updateQuantity(item.cartItemId, quantity + 1)}
-          className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-100 font-bold transition-colors"
+          onClick={() => updateCartQty(item, +1)}
+          className="w-8 h-8 flex items-center justify-center border border-black text-black rounded-lg hover:bg-gray-100 font-bold transition-colors"
         >
           +
         </button>
@@ -77,7 +77,7 @@ const CartItem = ({ item }) => {
           ${totalPrice.toFixed(2)}
         </p>
         <button
-          onClick={() => removeFromCart(item.cartItemId)}
+          onClick={() => removeCartItem(item)}
           className="text-red-500 text-sm hover:text-red-700 mt-1 font-medium transition-colors"
         >
           Remove
