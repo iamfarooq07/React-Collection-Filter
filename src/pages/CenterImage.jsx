@@ -6,9 +6,9 @@ function CenterImage() {
       <div>
         <div className="flex justify-center items-center">
           <img
-            src="https://admin.broadwaypizza.com.pk/images/banner/webbanner1111.png"
+            src="https://admin.broadwaypizza.com.pk/images/banner/web-banner-1280x387cheesy.jpg"
             alt="connection page"
-            className="w-[90%] h-[30%] text-center mt-5 rounded-2xl"
+            className="w-full h-[30%] text-center mt-5 rounded-2xl"
           />
         </div>
       </div>

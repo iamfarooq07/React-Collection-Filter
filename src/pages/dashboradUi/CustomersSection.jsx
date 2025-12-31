@@ -108,7 +108,9 @@ export default function CustomersSection() {
                   <TableHead className="text-white">Customer</TableHead>
                   <TableHead className="text-white">Email</TableHead>
                   <TableHead className="text-white">Status</TableHead>
-                  <TableHead className="text-right">Orders</TableHead>
+                  <TableHead className="text-white text-right">
+                    Orders
+                  </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
