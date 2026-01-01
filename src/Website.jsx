@@ -12,6 +12,7 @@ import Orders from "./pages/dashboradUi/Orders";
 import CustomersSection from "./pages/dashboradUi/CustomersSection";
 import Analytics from "./pages/dashboradUi/Analytics";
 import Settings from "./pages/dashboradUi/Settings";
+import { Calendar18 } from "./pages/Calendar18";
 
 function Website() {
   return (
@@ -27,6 +28,7 @@ function Website() {
           <Route path="/dashboard/customers" element={<CustomersSection />} />
           <Route path="/dashboard/analytics" element={<Analytics />} />
           <Route path="/dashboard/settings" element={<Settings />} />
+          <Route path="/dashboard/calendar" element={<Calendar18 />} />
           <Route path="/Products" element={<Colections />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/Card" element={<ProductCard />} />

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../component/logo.png";
 import { Link } from "react-router-dom";
+import { Calendar } from "lucide-react";
 
 // Single-file React + Tailwind dashboard component
 // No external libraries required — only React and Tailwind CSS.
@@ -195,6 +196,17 @@ export default function Dashboard() {
                 Settings
               </span>
             </Link>
+            <Link
+              to="/dashboard/calendar"
+              className="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-white hover:bg-gray-200 hover:text-gray-800 transition"
+            >
+              <span className="w-6 h-6 flex items-center justify-center">
+                <Calendar />
+              </span>
+              <span className={`${sidebarOpen ? "block" : "hidden"}`}>
+                Calendar
+              </span>
+            </Link>
           </nav>
 
           {/* --- */}
@@ -212,7 +224,7 @@ export default function Dashboard() {
         <main className="flex-1 p-6">
           {/* Topbar */}
           <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
+            {/* <div className="flex items-center gap-4">
               <div className="relative">
                 <input
                   value={query}
@@ -237,19 +249,19 @@ export default function Dashboard() {
               </div>
 
               <div className="hidden md:flex items-center gap-3 text-sm text-gray-600">
-                <button className="px-3 py-2 rounded-md text-white hover:bg-gray-300 hover:text-gray-800">
+                <Link
+                  to={"/dashboard/calendar"}
+                  className="px-3 py-2 rounded-md text-white hover:bg-gray-300 hover:text-gray-800"
+                >
                   Calendar
-                </button>
-                <button className="px-3 py-2 rounded-md text-white hover:bg-gray-300 hover:text-gray-800">
-                  Reports
-                </button>
+                </Link>
               </div>
-            </div>
+            </div> */}
 
             <div className="flex items-center gap-3">
-              <button className="p-2 rounded-full hover:bg-gray-100 hover:text-gray-800">
+              {/* <button className="p-2 rounded-full hover:bg-gray-100 hover:text-gray-800">
                 <BellIcon />
-              </button>
+              </button> */}
               <div className="flex items-center gap-2">
                 <img
                   src="https://www.shutterstock.com/image-vector/flat-vector-smiling-boy-headphones-600nw-2606713523.jpg"

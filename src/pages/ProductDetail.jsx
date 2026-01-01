@@ -70,7 +70,13 @@ const ProductDetail = () => {
 
     toast.success(
       `Added ${quantity} ${product.title}${quantity > 1 ? "s" : ""} to cart!`,
-      { autoClose: 800 }
+      {
+        autoClose: 800,
+        style: {
+          background: "#0b1017",
+          color: "#fff",
+        },
+      }
     );
   };
 

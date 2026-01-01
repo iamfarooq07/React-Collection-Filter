@@ -8,31 +8,34 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 bg-black border-b border-gray-700 shadow-lg">
       {/* Container */}
-      <div className="flex justify-between items-center px-6 md:px-20 h-20">
-        {/* Logo */}
+      <div className="flex justify-between items-center px-6 h-20">
         <Link to="/">
-          <img src={logo} alt="logo" className="w-56 h-16 object-contain" />
+          <img
+            src={logo}
+            alt="logo"
+            className="hidden md:block w-56 h-16 object-contain"
+          />
         </Link>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-10 text-xl font-semibold">
           <Link
             to="/"
-            className="text-white hover:text-orange-400 duration-200"
+            className="text-white font-sans hover:text-orange-400 duration-200"
           >
             Home
           </Link>
 
           <Link
             to="/dashboard"
-            className="text-white hover:text-orange-400 duration-200"
+            className="text-white font-sans hover:text-orange-400 duration-200"
           >
             Dashboard
           </Link>
 
           <Link
             to="/products"
-            className="text-white hover:text-orange-400 duration-200"
+            className="text-white font-sans hover:text-orange-400 duration-200"
           >
             Products
           </Link>

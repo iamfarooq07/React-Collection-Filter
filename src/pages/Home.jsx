@@ -3,6 +3,7 @@ import CenterImage from "./CenterImage";
 import MainImage from "./MainImage";
 import { products } from "../data/products";
 import Maincard from "./Maincard";
+import { motion } from "motion/react";
 
 export default function Home() {
   return (
@@ -13,9 +14,17 @@ export default function Home() {
         </div>
 
         <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/70 to-transparent flex items-end pb-10 pl-10">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-xl">
+          <motion.h1
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+              ease: "easeOut",
+            }}
+            className="text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-xl"
+          >
             Welcome to Snackify
-          </h1>
+          </motion.h1>
         </div>
       </div>
 
